@@ -5,13 +5,6 @@ namespace BottlesTest;
 [TestClass]
 public class Tests
 {
-    private readonly Bottles bottles;
-
-    public Tests()
-    {
-        bottles = new Bottles();
-    }
-
     [TestMethod]
     public void TheFirstVerse()
     {
