@@ -5,6 +5,14 @@ namespace BottlesTest;
 [TestClass]
 public class Tests
 {
+     private Bottles bottles;
+
+    [TestInitialize]
+    public void TestInitialize()
+    {
+        this.bottles = new Bottles();
+    }
+
     [TestMethod]
     public void TheFirstVerse()
     {
@@ -14,7 +22,7 @@ public class Tests
         "Take one down and pass it around, " +
         "98 bottles of beer on the wall.\n";
 
-        Assert.AreEqual(expected, Bottles.Verse(99));
+        Assert.AreEqual(expected, this.bottles.Verse(99));
     }
 
     [TestMethod]
@@ -26,7 +34,7 @@ public class Tests
         "Take one down and pass it around, " +
         "2 bottles of beer on the wall.\n";
 
-        Assert.AreEqual(expected, Bottles.Verse(3));
+        Assert.AreEqual(expected, this.bottles.Verse(3));
     }    
 
     [TestMethod]
@@ -38,7 +46,7 @@ public class Tests
         "Take one down and pass it around, " +
         "1 bottle of beer on the wall.\n";
 
-        Assert.AreEqual(expected, Bottles.Verse(2));
+        Assert.AreEqual(expected, this.bottles.Verse(2));
     }        
 
     [TestMethod]
@@ -50,7 +58,7 @@ public class Tests
         "Take it down and pass it around, " +
         "no more bottles of beer on the wall.\n";
 
-        Assert.AreEqual(expected, Bottles.Verse(1));
+        Assert.AreEqual(expected, this.bottles.Verse(1));
     }            
 
     [TestMethod]
@@ -62,7 +70,7 @@ public class Tests
         "Go to the store and buy some more, " +
         "99 bottles of beer on the wall.\n";
 
-        Assert.AreEqual(expected, Bottles.Verse(0));
+        Assert.AreEqual(expected, this.bottles.Verse(0));
     }          
 
 
@@ -80,7 +88,7 @@ public class Tests
         "Take one down and pass it around, " +
          "97 bottles of beer on the wall.\n";
 
-        var actual = Bottles.Verses(99,98);
+        var actual = this.bottles.Verses(99,98);
         Assert.AreEqual(expected, actual);
     }          
 
@@ -104,7 +112,7 @@ public class Tests
         "Go to the store and buy some more, " +
         "99 bottles of beer on the wall.\n";
 
-        Assert.AreEqual(expected, Bottles.Verses(2,0));
+        Assert.AreEqual(expected, this.bottles.Verses(2,0));
     }          
 
 
@@ -413,6 +421,6 @@ public class Tests
         "No more bottles of beer on the wall, no more bottles of beer.\n" +
         "Go to the store and buy some more, 99 bottles of beer on the wall.\n";
 
-        Assert.AreEqual(expected, Bottles.Song());
+        Assert.AreEqual(expected, this.bottles.Song());
     }          
 }
